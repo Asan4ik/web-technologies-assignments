@@ -1,0 +1,34 @@
+ .hero-section {
+     height: 32rem;
+     position: relative;
+ }
+
+ .carousel-item img {
+     height: 100%;
+     width: 100%;
+     object-fit: cover;
+ }
+
+ .overlay {
+     position: absolute;
+     top: 0;
+     left: 0;
+
+     width: 100%;
+     height: 100%;
+
+     background: rgba(43, 44, 48, 0.4);
+ }
+
+ a {
+     color: white !important;
+ }
+
+ a:hover {
+     color: #4a4a4a !important;
+ }
+
+ .card img {
+     height: 200px;
+     object-fit: cover;
+ }
