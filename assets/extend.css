@@ -1,3 +1,15 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .hero-section {
     height: 32rem;
     position: relative;
@@ -31,8 +43,19 @@ a:hover {
     object-fit: cover;
 }
 
+.figure-img {
+    width: 100%;
+    object-fit: cover;
+    height: 220px;
+}
 
-/* Mobile Devices*/
+.form-container {
+    width: 100%;
+    max-width: 800px;
+}
+
+
+/* Mobile Devices */
 @media (max-width: 767.98px) {
     .hero-section {
         height: 20rem;
@@ -72,20 +95,9 @@ a:hover {
 @media (max-width: 991.98px) {
     .figure-img {
         height: 180px;
-        width: 100%;
-        object-fit: cover;
     }
 
     .card img {
         height: 160px;
-    }
-}
-
-/* Desktops */
-@media (min-width: 992px) {
-    .figure-img {
-        height: 220px;
-        width: 100%;
-        object-fit: cover;
     }
 }
