@@ -54,60 +54,72 @@
         </div>
     </div>
 
-    <div class="mx-auto mt-5 px-3 border rounded form-container">
+    <form id="contactForm" class="mx-auto mt-5 px-3 border rounded form-container">
         <h4 class="my-3">Send us message</h4>
+
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Name</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="John Doe">
+            <label for="nameInput" class="form-label">Name</label>
+            <input type="text" class="form-control" id="nameInput" placeholder="John Doe">
         </div>
+
         <div class="mb-3">
-            <label for="exampleFormControlInput2" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="name@example.com">
+            <label for="emailInput" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="emailInput" placeholder="name@example.com">
         </div>
+
         <div class="mb-3">
-            <label for="exampleFormControlSelect1" class="form-label">Destination</label>
-            <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+            <label for="passwordInput" class="form-label">Password</label>
+            <input type="password" class="form-control" id="passwordInput">
+        </div>
+
+        <div class="mb-3">
+            <label for="destinationSelect" class="form-label">Destination</label>
+            <select class="form-select" id="destinationSelect" aria-label="Destination select">
+                <option value="" selected>Open this select menu</option>
                 <option value="1">Almaty</option>
                 <option value="2">Astana</option>
                 <option value="3">Burabay</option>
                 <option value="4">Other</option>
             </select>
         </div>
+
         <div class="mb-3">
-            <label for="exampleFormControlCheck1" class="form-label">Trip Type:</label>
+            <label class="form-label">Trip Type:</label>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                <input class="form-check-input" type="radio" name="tripType" id="radioDefault1" value="1">
                 <label class="form-check-label" for="radioDefault1">
                     Nature and Adventure
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" checked>
+                <input class="form-check-input" type="radio" name="tripType" id="radioDefault2" value="2" checked>
                 <label class="form-check-label" for="radioDefault2">
                     Cultural and Historical
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault3">
+                <input class="form-check-input" type="radio" name="tripType" id="radioDefault3" value="3">
                 <label class="form-check-label" for="radioDefault3">
                     City Break
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault4">
+                <input class="form-check-input" type="radio" name="tripType" id="radioDefault4" value="4">
                 <label class="form-check-label" for="radioDefault4">
                     Other
                 </label>
             </div>
         </div>
+
         <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="messageTextarea" class="form-label">Message</label>
+            <textarea class="form-control" id="messageTextarea" rows="3"></textarea>
         </div>
-        <button type="button" class="btn btn-primary mb-3">Submit</button>
-        <button id="subscribeButton" class="btn btn-primary mb-3">Subscribe</button>
-    </div>
+
+        <button type="submit" id="contactButton" class="btn btn-primary mb-3">Submit</button>
+        <button type="button" id="subscribeButton" class="btn btn-primary mb-3">Subscribe</button>
+    </form>
+
     <div id="popupOverlay" class="popup-overlay">
         <div class="popup-content">
             <span class="close-btn">&times;</span>
