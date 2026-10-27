@@ -33,10 +33,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact-us.html">Contact Us</a>
                     </li>
+
                 </ul>
             </div>
+
+            <button class="theme-toggle btn btn-outline-light ms-lg-3" type="button" aria-pressed="false">
+                Night Mode
+            </button>
         </div>
     </nav>
+
 
 
     <div class="carousel-inner">
@@ -135,6 +141,291 @@
             </div>
         </div>
     </div>
+
+    <section id="destinations-section" class="container my-5">
+
+        <!-- Destination filters -->
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+
+            <button class="btn btn-success destination-filter active" type="button" data-destination-filter="all">
+                All Places
+            </button>
+
+            <button class="btn btn-outline-success destination-filter" type="button" data-destination-filter="canyon">
+                Canyons
+            </button>
+
+            <button class="btn btn-outline-success destination-filter" type="button" data-destination-filter="lake">
+                Lakes
+            </button>
+
+            <button class="btn btn-outline-success destination-filter" type="button" data-destination-filter="park">
+                National Parks
+            </button>
+
+        </div>
+
+        <!-- Live counter -->
+        <p id="destination-count" class="text-center mb-4" aria-live="polite">
+            Showing 6 destinations
+        </p>
+
+        <!-- Destination cards -->
+        <div class="row g-4" id="destination-list">
+
+            <!-- 1. Charyn Canyon -->
+            <div class="col-md-6 col-lg-4 destination-item" data-category="canyon">
+
+                <div class="card h-100 shadow-sm">
+
+                    <img src="assets/images/castlesOfCharyn.jpg" class="card-img-top destination-image"
+                        alt="Red rock formations of Charyn Canyon" loading="lazy">
+
+                    <div class="card-body d-flex flex-column">
+
+                        <span class="badge text-bg-success align-self-start mb-2">
+                            Canyon
+                        </span>
+
+                        <h5 class="card-title">Charyn Canyon</h5>
+
+                        <p class="card-text">
+                            Discover dramatic red cliffs and the famous
+                            Valley of Castles in southeastern Kazakhstan.
+                        </p>
+
+                        <div class="destination-extra d-none">
+                            <p>
+                                <strong>Best for:</strong> Hiking, photography
+                                and exploring unusual rock formations.
+                            </p>
+                            <p>
+                                <strong>Tip:</strong> Bring water and comfortable
+                                walking shoes, especially in warm weather.
+                            </p>
+                        </div>
+
+                        <button class="btn btn-outline-success mt-auto destination-toggle" type="button"
+                            aria-expanded="false">
+                            Read more
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 2. Kolsai Lakes -->
+            <div class="col-md-6 col-lg-4 destination-item" data-category="lake">
+
+                <div class="card h-100 shadow-sm">
+
+                    <img src="assets/images/kolsay-mountain.jpg" class="card-img-top destination-image"
+                        alt="Mountain scenery around Kolsai Lakes" loading="lazy">
+
+                    <div class="card-body d-flex flex-column">
+
+                        <span class="badge text-bg-primary align-self-start mb-2">
+                            Lake
+                        </span>
+
+                        <h5 class="card-title">Kolsai Lakes</h5>
+
+                        <p class="card-text">
+                            Enjoy beautiful alpine lakes surrounded by
+                            mountain forests and impressive peaks.
+                        </p>
+
+                        <div class="destination-extra d-none">
+                            <p>
+                                <strong>Best for:</strong> Hiking, nature
+                                photography and mountain scenery.
+                            </p>
+                            <p>
+                                <strong>Tip:</strong> Check trail conditions
+                                and weather before travelling.
+                            </p>
+                        </div>
+
+                        <button class="btn btn-outline-success mt-auto destination-toggle" type="button"
+                            aria-expanded="false">
+                            Read more
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 3. Kaindy Lake -->
+            <div class="col-md-6 col-lg-4 destination-item" data-category="lake">
+
+                <div class="card h-100 shadow-sm">
+
+                    <img src="assets/images/kaindy.jpg" class="card-img-top destination-image"
+                        alt="Submerged tree trunks in Kaindy Lake" loading="lazy">
+
+                    <div class="card-body d-flex flex-column">
+
+                        <span class="badge text-bg-primary align-self-start mb-2">
+                            Lake
+                        </span>
+
+                        <h5 class="card-title">Kaindy Lake</h5>
+
+                        <p class="card-text">
+                            Visit a remarkable mountain lake known for
+                            its turquoise water and submerged tree trunks.
+                        </p>
+
+                        <div class="destination-extra d-none">
+                            <p>
+                                <strong>Best for:</strong> Photography and
+                                discovering unusual natural landscapes.
+                            </p>
+                            <p>
+                                <strong>Tip:</strong> The road can be rough,
+                                so check transport options before your trip.
+                            </p>
+                        </div>
+
+                        <button class="btn btn-outline-success mt-auto destination-toggle" type="button"
+                            aria-expanded="false">
+                            Read more
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 4. Burabay -->
+            <div class="col-md-6 col-lg-4 destination-item" data-category="park">
+
+                <div class="card h-100 shadow-sm">
+
+                    <img src="assets/images/burabay.jpg" class="card-img-top destination-image"
+                        alt="Lake and forest landscape in Burabay" loading="lazy">
+
+                    <div class="card-body d-flex flex-column">
+
+                        <span class="badge text-bg-success align-self-start mb-2">
+                            National Park
+                        </span>
+
+                        <h5 class="card-title">Burabay</h5>
+
+                        <p class="card-text">
+                            Relax among pine forests, lakes and distinctive
+                            rock formations in northern Kazakhstan.
+                        </p>
+
+                        <div class="destination-extra d-none">
+                            <p>
+                                <strong>Best for:</strong> Relaxing, walking,
+                                boating and family trips.
+                            </p>
+                            <p>
+                                <strong>Tip:</strong> Plan extra time for
+                                viewpoints and lakeside walks.
+                            </p>
+                        </div>
+
+                        <button class="btn btn-outline-success mt-auto destination-toggle" type="button"
+                            aria-expanded="false">
+                            Read more
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 5. Altyn-Emel -->
+            <div class="col-md-6 col-lg-4 destination-item" data-category="park">
+
+                <div class="card h-100 shadow-sm">
+
+                    <img src="assets/images/altyn-emel.jpg" class="card-img-top destination-image"
+                        alt="Desert scenery in Altyn-Emel National Park" loading="lazy">
+
+                    <div class="card-body d-flex flex-column">
+
+                        <span class="badge text-bg-success align-self-start mb-2">
+                            National Park
+                        </span>
+
+                        <h5 class="card-title">Altyn-Emel</h5>
+
+                        <p class="card-text">
+                            Explore desert landscapes, distinctive dunes
+                            and the diverse wildlife of a large national park.
+                        </p>
+
+                        <div class="destination-extra d-none">
+                            <p>
+                                <strong>Best for:</strong> Nature exploration,
+                                landscapes and wildlife watching.
+                            </p>
+                            <p>
+                                <strong>Tip:</strong> Arrange suitable transport
+                                and check park access requirements in advance.
+                            </p>
+                        </div>
+
+                        <button class="btn btn-outline-success mt-auto destination-toggle" type="button"
+                            aria-expanded="false">
+                            Read more
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 6. Alakol Lake -->
+            <div class="col-md-6 col-lg-4 destination-item" data-category="lake">
+
+                <div class="card h-100 shadow-sm">
+
+                    <img src="assets/images/alakol.jpg" class="card-img-top destination-image"
+                        alt="Shoreline of Lake Alakol" loading="lazy">
+
+                    <div class="card-body d-flex flex-column">
+
+                        <span class="badge text-bg-primary align-self-start mb-2">
+                            Lake
+                        </span>
+
+                        <h5 class="card-title">Lake Alakol</h5>
+
+                        <p class="card-text">
+                            Enjoy a lakeside escape with wide-open views
+                            and popular summer recreation areas.
+                        </p>
+
+                        <div class="destination-extra d-none">
+                            <p>
+                                <strong>Best for:</strong> Summer holidays,
+                                lakeside relaxation and photography.
+                            </p>
+                            <p>
+                                <strong>Tip:</strong> Check local weather
+                                and accommodation availability before visiting.
+                            </p>
+                        </div>
+
+                        <button class="btn btn-outline-success mt-auto destination-toggle" type="button"
+                            aria-expanded="false">
+                            Read more
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
     <div class="container my-5">
         <div class="row justify-content-center g-4">

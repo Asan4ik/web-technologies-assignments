@@ -118,6 +118,7 @@ a:hover {
     }
 }
 
+
 /* Tablets and Small Laptops */
 @media (max-width: 991.98px) {
     .figure-img {
@@ -126,5 +127,97 @@ a:hover {
 
     .card img {
         height: 160px;
+    }
+}
+
+
+/* Day/Night */
+
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+    background-color: #18231d;
+    color: #edf4ee;
+}
+
+body.dark-theme .navbar {
+    background-color: #142019 !important;
+}
+
+body.dark-theme .card,
+body.dark-theme .bg-light,
+body.dark-theme .popup-content {
+    background-color: #26352b !important;
+    color: #edf4ee !important;
+}
+
+body.dark-theme .form-control,
+body.dark-theme .form-select {
+    background-color: #26352b;
+    color: #edf4ee;
+    border-color: #526657;
+}
+
+body.dark-theme .form-control::placeholder {
+    color: #c0cec3;
+}
+
+body.dark-theme .form-select option {
+    background-color: #26352b;
+    color: #edf4ee;
+}
+
+
+
+/* Destination cards */
+
+.destination-image {
+    height: 220px;
+    object-fit: cover;
+}
+
+.destination-card-enter {
+    animation: destinationFadeIn 0.4s ease;
+}
+
+@keyframes destinationFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Transport card animations */
+
+.transport-item {
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.transport-item:hover {
+    transform: translateY(-5px);
+}
+
+.transport-item.card-enter {
+    animation: cardAppear 0.35s ease;
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
