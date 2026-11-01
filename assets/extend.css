@@ -356,3 +356,10 @@ img.lazy-img {
 img.lazy-img.loaded {
   opacity: 1;
 }
+
+.figure-img.lazy-img {
+  aspect-ratio: 3 / 2;
+  width: 100%;
+  object-fit: cover;
+  background-color: #e9ecef;
+}
