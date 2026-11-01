@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact Us - KazTour</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="assets/extend.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
 </head>
 
 <body>
@@ -22,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="destinations.html">Destinations</a>
@@ -31,9 +32,8 @@
                         <a class="nav-link" href="trip-guide.html">Trip Guide</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact-us.html">Contact Us</a>
+                        <a class="nav-link active" aria-current="page" href="contact-us.html">Contact Us</a>
                     </li>
-
                 </ul>
             </div>
 
@@ -43,24 +43,29 @@
         </div>
     </nav>
 
-
-
     <div class="carousel-inner">
         <div class="carousel-item active hero-section position-relative">
-
             <img src="assets/images/kolsay.webp" class="w-100 h-100 object-fit-cover">
-
             <div class="overlay"></div>
-
             <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
                 <h1>Plan Your Trip</h1>
                 <p>Have questions about planning your trip to Kazakhstan? Get in touch with our team!</p>
             </div>
-
         </div>
     </div>
 
-    <form id="contactForm" class="mx-auto mt-5 px-3 border rounded form-container">
+    <!-- Contact Info Header with Copy Button -->
+    <div class="container text-center my-4">
+        <p class="text-muted mb-2">Direct email support:</p>
+        <div class="d-inline-flex align-items-center gap-2 p-2 border rounded shadow-sm">
+            <code id="contactSupportEmail" class="fs-6 text-success">info@kaztour.kz</code>
+            <button type="button" class="btn btn-sm btn-outline-success copy-btn" data-copy-target="#contactSupportEmail">
+                Copy
+            </button>
+        </div>
+    </div>
+
+    <form id="contactForm" class="mx-auto mt-3 px-3 border rounded form-container">
         <h4 class="my-3">Send us message</h4>
 
         <div class="mb-3">
@@ -138,33 +143,18 @@
         </div>
     </div>
 
-    <footer class="footer-custom mt-5" style="background-color: #12182d;
-            padding: 30px 0;
-            margin-top: 50px;">
+    <footer class="footer-custom mt-5" style="background-color: #12182d; padding: 30px 0; margin-top: 50px;">
         <div class="container-fluid px-5">
-
             <div class="d-flex justify-content-between align-items-center">
-
-                <h5 class="mb-0 text-white">
-                    KazTour
-                </h5>
-
+                <h5 class="mb-0 text-white">KazTour</h5>
                 <span class="clock text-white"></span>
-
                 <ul class="nav">
-                    <li class="nav-item px-4 text-white">
-                        Group members: Asanali Serik, Sanzhar Zhussip SE-2515
-                    </li>
-
-                    <li class="nav-item px-4 text-white">
-                        Team name: Straw Hats
-                    </li>
+                    <li class="nav-item px-4 text-white">Group members: Asanali Serik, Sanzhar Zhussip SE-2515</li>
+                    <li class="nav-item px-4 text-white">Team name: Straw Hats</li>
                 </ul>
             </div>
         </div>
     </footer>
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

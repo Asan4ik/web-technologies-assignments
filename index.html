@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>KazTour - Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="assets/extend.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
 </head>
 
 <body>
@@ -33,7 +34,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact-us.html">Contact Us</a>
                     </li>
-
                 </ul>
             </div>
             <button class="theme-toggle btn btn-outline-light ms-lg-3" type="button" aria-pressed="false">
@@ -42,41 +42,37 @@
         </div>
     </nav>
 
-
     <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
-        <div class="carousel-indicators"> <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0"
-                class="" aria-label="Slide 1"></button> <button type="button" data-bs-target="#myCarousel"
-                data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button> <button
-                type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+        <div class="carousel-indicators"> 
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" aria-label="Slide 1"></button> 
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button> 
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item hero-section"> <img class="w-100 h-100 object-fit-cover"
-                    src="assets/images/almaty-region.jpg" alt="Almaty region">
+            <div class="carousel-item hero-section"> 
+                <img class="w-100 h-100 object-fit-cover" src="assets/images/almaty-region.jpg" alt="Almaty region">
                 <div class="overlay"></div>
                 <div class="container">
                     <div class="carousel-caption text-start">
                         <h1>Trip guide</h1>
-                        <p class="opacity-75">Everything you need to know to
-                            make your next
-                            trip to Kazakhstan unforgettable.</p>
+                        <p class="opacity-75">Everything you need to know to make your next trip to Kazakhstan unforgettable.</p>
                         <p><a class="btn btn-lg btn-primary" href="trip-guide.html">Learn more</a></p>
                     </div>
                 </div>
             </div>
-            <div class="carousel-item active hero-section"> <img class="w-100 h-100 object-fit-cover"
-                    src="assets/images/castles-of-charyn.jpg" alt="Castles of Charyn">
+            <div class="carousel-item active hero-section"> 
+                <img class="w-100 h-100 object-fit-cover" src="assets/images/castles-of-charyn.jpg" alt="Castles of Charyn">
                 <div class="overlay"></div>
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>Explore Kazakhstan</h1>
-                        <p>Discover breathtaking landscapes, vibrant cities, and unforgettable
-                            adventures.</p>
+                        <p>Discover breathtaking landscapes, vibrant cities, and unforgettable adventures.</p>
                         <p><a class="btn btn-lg btn-primary" href="destinations.html">See destinations</a></p>
                     </div>
                 </div>
             </div>
-            <div class="carousel-item hero-section"> <img class="w-100 h-100 object-fit-cover"
-                    src="assets/images/kolsay.webp" alt="Kolsay">
+            <div class="carousel-item hero-section"> 
+                <img class="w-100 h-100 object-fit-cover" src="assets/images/kolsay.webp" alt="Kolsay">
                 <div class="overlay"></div>
                 <div class="container">
                     <div class="carousel-caption text-end">
@@ -86,14 +82,35 @@
                     </div>
                 </div>
             </div>
-        </div> <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-                class="visually-hidden">Previous</span> </button> <button class="carousel-control-next" type="button"
-            data-bs-target="#myCarousel" data-bs-slide="next"> <span class="carousel-control-next-icon"
-                aria-hidden="true"></span> <span class="visually-hidden">Next</span> </button>
+        </div> 
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span> 
+            <span class="visually-hidden">Previous</span> 
+        </button> 
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next"> 
+            <span class="carousel-control-next-icon" aria-hidden="true"></span> 
+            <span class="visually-hidden">Next</span> 
+        </button>
     </div>
 
-
+    <!-- Animated Counters -->
+    <div class="container my-5 text-center">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <h2 class="stat-counter fw-bold text-success" data-target="1500">0</h2>
+                <p class="text-muted">Happy Travelers</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="stat-counter fw-bold text-success" data-target="25">0</h2>
+                <p class="text-muted">Destinations</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="stat-counter fw-bold text-success" data-target="98">0</h2>
+                <p class="text-muted">Positive Reviews (%)</p>
+            </div>
+        </div>
+    </div>
+    
     <div class="container text-center my-5">
         <div class="row">
             <div class="col-6">
@@ -145,13 +162,17 @@
         </div>
     </div>
 
-
     <div class="container my-5">
         <div class="row align-items-start g-4">
             <div class="col-lg-6">
                 <div class="border rounded-4 shadow-sm p-4">
                     <div class="card-body p-4">
-                        <h4 class="fw-bold mb-4">Quick Facts</h4>
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h4 class="fw-bold mb-0">Quick Facts</h4>
+                            <button type="button" class="btn btn-sm btn-outline-success copy-btn" data-copy-target="#quick-facts-table">
+                                Copy Table
+                            </button>
+                        </div>
                         <div class="table-responsive">
                             <table id="quick-facts-table" class="table mb-0">
                                 <tbody>
@@ -189,12 +210,10 @@
                 <div class="position-relative overflow-hidden rounded-4">
                     <img src="assets/images/kolsayMountain.jpg" class="w-100 rounded-4"
                         style="height: 395px; object-fit: cover;" alt="Kazakhstan">
-
                     <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
                     <div class="position-absolute top-50 start-50 translate-middle text-center text-white w-75">
                         <p class="fs-4 fst-italic lh-base mb-0">
-                            "Kazakhstan is a country where nature, culture and
-                            modern life meet in perfect harmony."
+                            "Kazakhstan is a country where nature, culture and modern life meet in perfect harmony."
                         </p>
                     </div>
                 </div>
@@ -202,28 +221,14 @@
         </div>
     </div>
 
-
-    <footer class="footer-custom mt-5" style="background-color: #12182d;
-            padding: 30px 0;
-            margin-top: 50px;">
+    <footer class="footer-custom mt-5" style="background-color: #12182d; padding: 30px 0; margin-top: 50px;">
         <div class="container-fluid px-5">
-
             <div class="d-flex justify-content-between align-items-center">
-
-                <h5 class="mb-0 text-white">
-                    KazTour
-                </h5>
-
+                <h5 class="mb-0 text-white">KazTour</h5>
                 <span class="clock text-white"></span>
-
                 <ul class="nav">
-                    <li class="nav-item px-4 text-white">
-                        Group members: Asanali Serik, Sanzhar Zhussip SE-2515
-                    </li>
-
-                    <li class="nav-item px-4 text-white">
-                        Team name: Straw Hats
-                    </li>
+                    <li class="nav-item px-4 text-white">Group members: Asanali Serik, Sanzhar Zhussip SE-2515</li>
+                    <li class="nav-item px-4 text-white">Team name: Straw Hats</li>
                 </ul>
             </div>
         </div>
@@ -233,7 +238,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-
 </body>
 
 </html>
