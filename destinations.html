@@ -4,52 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Destinations - KazTour</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link href="assets/extend.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #12182d;">
+    <nav class="navbar navbar-expand-lg fixed-top" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">KazTour</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
-                style="border: 2px solid white;">
-                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            <button class="theme-toggle btn btn-outline-light order-1 ms-auto me-2" type="button" aria-pressed="false"
+                aria-label="Switch to night mode" title="Switch to night mode">
+                <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+                </svg>
+                <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="5" />
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                </svg>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <a class="auth-nav-link btn btn-outline-light order-2" href="login.html">Log in</a>
+            <button class="navbar-toggler order-3 ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse order-4 order-lg-0" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="destinations.html">Destinations</a>
+                        <a class="nav-link active" aria-current="page" href="destinations.html">Destinations</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="trip-guide.html">Trip Guide</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact-us.html">Contact Us</a>
+                        <a class="nav-link" href="contact.html">Contact Us</a>
                     </li>
-
                 </ul>
             </div>
-
-            <button class="theme-toggle btn btn-outline-light ms-lg-3" type="button" aria-pressed="false">
-                Night Mode
-            </button>
         </div>
     </nav>
-
-
 
     <div class="carousel-inner">
         <div class="carousel-item active hero-section position-relative">
 
-            <img src="assets/images/castlesOfCharyn.jpg" class="w-100 h-100 object-fit-cover">
+            <img src="images/castlesOfCharyn.jpg" class="w-100 h-100 object-fit-cover">
 
             <div class="overlay"></div>
 
@@ -60,7 +65,6 @@
 
         </div>
     </div>
-
 
     <div class="container text-center my-5">
         <div class="row">
@@ -90,39 +94,39 @@
 
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="assets/images/tyan-shan.jpg" class="d-block w-100 object-fit-cover"
+                                <img src="images/tyan-shan.jpg" class="d-block w-100 object-fit-cover"
                                     style="height: 500px;" alt="Tyan Shan">
                             </div>
                             <div class="carousel-item">
-                                <img src="assets/images/forest.jpg" class="d-block w-100 object-fit-cover"
+                                <img src="images/forest.jpg" class="d-block w-100 object-fit-cover"
                                     style="height: 500px;" alt="Forest">
                             </div>
                             <div class="carousel-item">
-                                <img src="assets/images/sunset-mountains.jpg" class="d-block w-100 object-fit-cover"
+                                <img src="images/sunset-mountains.jpg" class="d-block w-100 object-fit-cover"
                                     style="height: 500px;" alt="Sunset Mountains">
                             </div>
                             <div class="carousel-item">
-                                <img src="assets/images/plato.jpg" class="d-block w-100 object-fit-cover"
+                                <img src="images/plato.jpg" class="d-block w-100 object-fit-cover"
                                     style="height: 500px;" alt="Plato">
                             </div>
                             <div class="carousel-item">
-                                <img src="assets/images/idk.jpg" class="d-block w-100 object-fit-cover"
+                                <img src="images/idk.jpg" class="d-block w-100 object-fit-cover"
                                     style="height: 500px;" alt="Landscape">
                             </div>
                             <div class="carousel-item">
-                                <img src="assets/images/glassy-lake.jpg" class="d-block w-100 object-fit-cover"
+                                <img src="images/glassy-lake.jpg" class="d-block w-100 object-fit-cover"
                                     style="height: 500px;" alt="Glassy Lake">
                             </div>
                             <div class="carousel-item">
-                                <img src="assets/images/another-canyon.jpg" class="d-block w-100 object-fit-cover"
+                                <img src="images/another-canyon.jpg" class="d-block w-100 object-fit-cover"
                                     style="height: 500px;" alt="Canyon">
                             </div>
                             <div class="carousel-item">
-                                <img src="assets/images/kolsay-mountain.jpg" class="d-block w-100 object-fit-cover"
+                                <img src="images/kolsay-mountain.jpg" class="d-block w-100 object-fit-cover"
                                     style="height: 500px;" alt="Kolsay Mountain">
                             </div>
                             <div class="carousel-item">
-                                <img src="assets/images/back.jpg" class="d-block w-100 object-fit-cover"
+                                <img src="images/back.jpg" class="d-block w-100 object-fit-cover"
                                     style="height: 500px;" alt="Background landscape">
                             </div>
                         </div>
@@ -179,7 +183,7 @@
 
                 <div class="card h-100 shadow-sm">
 
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/images/castlesOfCharyn.jpg" class="lazy-img card-img-top destination-image"
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="images/castlesOfCharyn.jpg" class="lazy-img card-img-top destination-image"
                         alt="Red rock formations of Charyn Canyon" loading="lazy">
 
                     <div class="card-body d-flex flex-column">
@@ -215,13 +219,12 @@
                 </div>
             </div>
 
-
             <!-- 2. Kolsai Lakes -->
             <div class="col-md-6 col-lg-4 destination-item" data-category="lake">
 
                 <div class="card h-100 shadow-sm">
 
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/images/kolsay-mountain.jpg" class="lazy-img card-img-top destination-image"
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="images/kolsay-mountain.jpg" class="lazy-img card-img-top destination-image"
                         alt="Mountain scenery around Kolsai Lakes" loading="lazy">
 
                     <div class="card-body d-flex flex-column">
@@ -257,13 +260,12 @@
                 </div>
             </div>
 
-
             <!-- 3. Kaindy Lake -->
             <div class="col-md-6 col-lg-4 destination-item" data-category="lake">
 
                 <div class="card h-100 shadow-sm">
 
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/images/kaindy.jpg" class="lazy-img card-img-top destination-image"
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="images/kaindy.jpg" class="lazy-img card-img-top destination-image"
                         alt="Submerged tree trunks in Kaindy Lake" loading="lazy">
 
                     <div class="card-body d-flex flex-column">
@@ -299,13 +301,12 @@
                 </div>
             </div>
 
-
             <!-- 4. Burabay -->
             <div class="col-md-6 col-lg-4 destination-item" data-category="park">
 
                 <div class="card h-100 shadow-sm">
 
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/images/burabay.jpg" class="lazy-img card-img-top destination-image"
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="images/burabay.jpg" class="lazy-img card-img-top destination-image"
                         alt="Lake and forest landscape in Burabay" loading="lazy">
 
                     <div class="card-body d-flex flex-column">
@@ -341,13 +342,12 @@
                 </div>
             </div>
 
-
             <!-- 5. Altyn-Emel -->
             <div class="col-md-6 col-lg-4 destination-item" data-category="park">
 
                 <div class="card h-100 shadow-sm">
 
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/images/altyn-emel.jpg" class="lazy-img card-img-top destination-image"
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="images/altyn-emel.jpg" class="lazy-img card-img-top destination-image"
                         alt="Desert scenery in Altyn-Emel National Park" loading="lazy">
 
                     <div class="card-body d-flex flex-column">
@@ -383,13 +383,12 @@
                 </div>
             </div>
 
-
             <!-- 6. Alakol Lake -->
             <div class="col-md-6 col-lg-4 destination-item" data-category="lake">
 
                 <div class="card h-100 shadow-sm">
 
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/images/alakol.jpg" class="lazy-img card-img-top destination-image"
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="images/alakol.jpg" class="lazy-img card-img-top destination-image"
                         alt="Shoreline of Lake Alakol" loading="lazy">
 
                     <div class="card-body d-flex flex-column">
@@ -433,7 +432,7 @@
             <div class="col-lg-5">
                 <div class="border rounded-4 shadow-sm p-5 h-100">
                     <h4 class="fw-bold mb-4">Travel Highlights</h4>
-                    <ul class="list-unstyled fs-5">
+                    <ul class="list-unstyled fs-5 mb-0">
                         <li class="mb-3">✓ Hiking in Kolsai Lakes</li>
                         <li class="mb-3">✓ Exploring Charyn Canyon</li>
                         <li class="mb-3">✓ Visiting Bayterek Tower</li>
@@ -441,13 +440,11 @@
                         <li class="mb-3">✓ Discovering unique wildlife</li>
                         <li>✓ Experiencing local culture and cuisine</li>
                     </ul>
-                    <button id="bg-color-change-btn" class="btn btn-primary">Change color of
-                        background</button>
                 </div>
             </div>
             <div class="col-lg-5">
                 <div class="position-relative overflow-hidden rounded-4">
-                    <img src="assets/images/kolsayMountain.jpg" class="w-100" style="height: 435px; object-fit: cover;"
+                    <img src="images/kolsayMountain.jpg" class="w-100" style="height: 435px; object-fit: cover;"
                         alt="Kazakhstan">
                     <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.35);">
                     </div>
@@ -463,37 +460,22 @@
         </div>
     </div>
 
-    <footer class="footer-custom mt-5" style="background-color: #12182d;
-            padding: 30px 0;
-            margin-top: 50px;">
+    <footer class="footer-custom">
         <div class="container-fluid px-5">
-
             <div class="d-flex justify-content-between align-items-center">
-
-                <h5 class="mb-0 text-white">
-                    KazTour
-                </h5>
-
-                <span class="clock text-white"></span>
-
+                <h5 class="mb-0 text-white">KazTour</h5>
                 <ul class="nav">
-                    <li class="nav-item px-4 text-white">
-                        Group members: Asanali Serik, Sanzhar Zhussip SE-2515
-                    </li>
-
-                    <li class="nav-item px-4 text-white">
-                        Team name: Straw Hats
-                    </li>
+                    <li class="nav-item px-4 text-white">Group members: Asanali Serik, Sanzhar Zhussip SE-2515</li>
+                    <li class="nav-item px-4 text-white">Team name: Straw Hats</li>
                 </ul>
             </div>
         </div>
     </footer>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script src="assets/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

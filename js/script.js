@@ -10,18 +10,16 @@ const subscribeForm = document.getElementById('subscribeForm');
 const contactForm = document.getElementById('contactForm');
 const contactName = document.getElementById('nameInput');
 const contactEmail = document.getElementById('emailInput');
-const contactPassword = document.getElementById('passwordInput');
+const contactPhone = document.getElementById('phoneInput');
 const contactDestination = document.getElementById('destinationSelect');
 const contactMessage = document.getElementById('messageTextarea');
 const contactStatus = document.getElementById('contact-status');
 
-const bgColorChangeBtn = document.getElementById('bg-color-change-btn');
 const travelTipsList = document.getElementById('travel-tips-list');
 const themeButtons = document.querySelectorAll('.theme-toggle');
 const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
 
 const transportItems = document.querySelectorAll('.transport-item');
-const transportButtons = document.querySelectorAll('[data-filter]');
 const toggleTransportButton = document.getElementById('toggle-transport-details');
 
 const destinationList = document.getElementById('destination-list');
@@ -30,38 +28,28 @@ const destinationFilters = document.querySelectorAll('.destination-filter');
 const destinationItems = document.querySelectorAll('.destination-item');
 const destinationToggleButtons = document.querySelectorAll('.destination-toggle');
 
+const loginForm = document.getElementById('loginForm');
+const loginEmail = document.getElementById('loginEmail');
+const loginPassword = document.getElementById('loginPassword');
+const loginStatus = document.getElementById('loginStatus');
+const signupForm = document.getElementById('signupForm');
+const signupName = document.getElementById('signupName');
+const signupEmail = document.getElementById('signupEmail');
+const signupPhone = document.getElementById('signupPhone');
+const signupPassword = document.getElementById('signupPassword');
+const signupConfirm = document.getElementById('signupConfirm');
+const profileCard = document.getElementById('profileCard');
+const logoutButton = document.getElementById('logoutButton');
+const authNavLink = document.querySelector('.auth-nav-link');
+
 
 /* =========================================================
-   2. SHARED DATA & HELPERS
+   2. SHARED HELPERS
    ========================================================= */
-
-const colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#33FFF5'];
-let currentColorIndex = 0;
-
-const transportData = [
-  { name: 'Train', category: 'train', description: 'Comfortable railway travel' },
-  { name: 'Air', category: 'air', description: 'Fast travel over long distances' },
-  { name: 'Bus', category: 'bus', description: 'Affordable intercity travel' },
-  { name: 'Car', category: 'car', description: 'Flexible travel at your own pace' }
-];
 
 function isValidEmail(email) {
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   return emailPattern.test(email);
-}
-
-function updateClock() {
-  const clocks = document.querySelectorAll('.clock');
-  clocks.forEach((clock) => {
-    clock.textContent = new Date().toLocaleString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit'
-    });
-  });
 }
 
 function escapeRegExp(string) {
@@ -141,64 +129,33 @@ function showContactSuccess() {
 }
 
 function processContactForm(callback) {
-  if (!contactName || !contactEmail || !contactPassword || !contactMessage || !contactDestination) {
-    alert('The contact form is missing a required field.');
+  if (!contactName || !contactEmail || !contactPhone || !contactMessage || !contactDestination) {
     return false;
   }
 
-  const passwordValue = contactPassword.value;
-  const isValidLength = passwordValue.length >= 8 && passwordValue.length <= 32;
-  const hasUppercase = /[A-Z]/.test(passwordValue);
-  const hasNumber = /[0-9]/.test(passwordValue);
-  const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(passwordValue);
+  const fieldsValid = [
+    setFieldError(contactName, getNameError(contactName.value.trim())),
+    setFieldError(contactEmail, getEmailError(contactEmail.value.trim())),
+    setFieldError(contactPhone, getPhoneError(contactPhone.value.trim())),
+    setFieldError(contactDestination, contactDestination.value === '' ? 'Choose a destination.' : ''),
+    setFieldError(contactMessage, contactMessage.value.trim() === '' ? 'Enter your message.' : '')
+  ].every(Boolean);
 
-  if (contactName.value.trim() === '') {
-    alert('Please enter your name.');
-    return false;
-  }
-
-  if (!isValidEmail(contactEmail.value.trim())) {
-    alert('Please enter a valid email address.');
-    return false;
-  }
-
-  if (!isValidLength || !hasUppercase || !hasNumber || !hasSpecial) {
-    alert('Weak password. Use 8–32 characters, including an uppercase letter, a number, and a special character.');
-    return false;
-  }
-
-  if (contactMessage.value.trim() === '') {
-    alert('Please enter your contact message.');
-    return false;
-  }
-
-  if (contactDestination.value === '') {
-    alert('Please choose your destination.');
-    return false;
-  }
+  if (!fieldsValid) return false;
 
   callback();
   return true;
 }
 
-
-/* =========================================================
-   5. BACKGROUND COLOUR CHANGER
-   ========================================================= */
-
-if (bgColorChangeBtn) {
-  bgColorChangeBtn.addEventListener('click', () => {
-    const targetSection = bgColorChangeBtn.closest('div');
-    if (!targetSection) return;
-
-    targetSection.style.background = colors[currentColorIndex];
-    currentColorIndex = (currentColorIndex + 1) % colors.length;
+if (contactForm) {
+  contactForm.addEventListener('input', (event) => {
+    event.target.classList.remove('is-invalid');
   });
 }
 
 
 /* =========================================================
-   6. TRAVEL TIPS ACCORDION
+   5. TRAVEL TIPS ACCORDION
    ========================================================= */
 
 if (travelTipsList) {
@@ -216,15 +173,7 @@ if (travelTipsList) {
 
 
 /* =========================================================
-   7. LIVE CLOCK
-   ========================================================= */
-
-updateClock();
-setInterval(updateClock, 1000);
-
-
-/* =========================================================
-   8. DAY / NIGHT THEME
+   6. DAY / NIGHT THEME
    ========================================================= */
 
 if (localStorage.getItem('theme') === 'dark') {
@@ -234,7 +183,9 @@ if (localStorage.getItem('theme') === 'dark') {
 function updateThemeButtons() {
   const isDark = document.body.classList.contains('dark-theme');
   themeButtons.forEach((button) => {
-    button.textContent = isDark ? 'Day Mode' : 'Night Mode';
+    const label = isDark ? 'Switch to day mode' : 'Switch to night mode';
+    button.setAttribute('aria-label', label);
+    button.title = label;
     button.setAttribute('aria-pressed', String(isDark));
   });
 }
@@ -252,7 +203,7 @@ themeButtons.forEach((button) => {
 
 
 /* =========================================================
-   9. KEYBOARD NAVIGATION
+   7. KEYBOARD NAVIGATION
    ========================================================= */
 
 navLinks.forEach((link, index) => {
@@ -277,104 +228,8 @@ navLinks.forEach((link, index) => {
 
 
 /* =========================================================
-   10. TRANSPORT SYSTEM
+   8. TRANSPORT DETAILS TOGGLE
    ========================================================= */
-
-function updateTransportCount(category) {
-  const filteredTransport = category === 'all'
-    ? transportData
-    : transportData.filter((t) => t.category === category);
-
-  const transportNames = filteredTransport.map((t) => t.name);
-  const countElement = document.getElementById('transport-count');
-
-  if (countElement) {
-    countElement.textContent =
-      `Showing ${filteredTransport.length} of ${transportData.length} transport options: ` +
-      transportNames.join(', ');
-  }
-}
-
-function playTransportFilterSound() {
-  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-  if (!AudioContextClass) return;
-
-  const audioContext = new AudioContextClass();
-  const oscillator = audioContext.createOscillator();
-  const gainNode = audioContext.createGain();
-
-  oscillator.type = 'sine';
-  oscillator.frequency.value = 660;
-
-  gainNode.gain.setValueAtTime(0.12, audioContext.currentTime);
-  gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.15);
-
-  oscillator.connect(gainNode);
-  gainNode.connect(audioContext.destination);
-
-  oscillator.start();
-  oscillator.stop(audioContext.currentTime + 0.15);
-
-  oscillator.onended = () => {
-    audioContext.close();
-  };
-}
-
-function filterTransportCards(category) {
-  let selectedTransport;
-
-  switch (category) {
-    case 'all':
-      selectedTransport = Array.from(transportItems);
-      break;
-    case 'train':
-    case 'air':
-    case 'bus':
-    case 'car':
-      selectedTransport = Array.from(transportItems).filter(
-        (item) => item.dataset.transport === category
-      );
-      break;
-    default:
-      return;
-  }
-
-  transportItems.forEach((item) => {
-    const shouldShow = selectedTransport.includes(item);
-    item.style.display = shouldShow ? '' : 'none';
-
-    if (shouldShow) {
-      item.classList.remove('card-enter');
-      void item.offsetWidth;
-      item.classList.add('card-enter');
-    }
-  });
-
-  transportButtons.forEach((button) => {
-    button.classList.remove('active');
-  });
-
-  const activeButton = Array.from(transportButtons).find(
-    (button) => button.dataset.filter === category
-  );
-
-  if (activeButton) {
-    activeButton.classList.add('active');
-  }
-}
-
-if (transportItems.length > 0) {
-  updateTransportCount('all');
-}
-
-transportButtons.forEach((button) => {
-  button.addEventListener('click', function () {
-    const category = this.dataset.filter;
-    updateTransportCount(category);
-    filterTransportCards(category);
-    playTransportFilterSound();
-  });
-});
 
 if (toggleTransportButton) {
   toggleTransportButton.addEventListener('click', () => {
@@ -396,7 +251,7 @@ if (toggleTransportButton) {
 
 
 /* =========================================================
-   11. DESTINATIONS
+   9. DESTINATIONS
    ========================================================= */
 
 function updateDestinationCount(category) {
@@ -463,7 +318,196 @@ if (destinationList) {
 
 
 /* =========================================================
-   12. JQUERY ASSIGNMENT TASKS (Parts 1, 2 & 3)
+   10. AUTHENTICATION (localStorage simulation)
+   ========================================================= */
+
+// Demo only: there is no backend, so passwords sit in localStorage as plain text.
+const USERS_KEY = 'kaztourUsers';
+const SESSION_KEY = 'kaztourSession';
+
+function getUsers() {
+  try {
+    return JSON.parse(localStorage.getItem(USERS_KEY)) || [];
+  } catch (error) {
+    return [];
+  }
+}
+
+function getCurrentUser() {
+  const email = localStorage.getItem(SESSION_KEY);
+  return getUsers().find((user) => user.email === email) || null;
+}
+
+// Each validator returns an error message, or an empty string when the value is fine.
+function getNameError(name) {
+  if (name === '') return 'Enter your name.';
+  if (name.length < 2) return 'Your name must be at least 2 characters long.';
+  return '';
+}
+
+function getEmailError(email) {
+  if (email === '') return 'Enter your email address.';
+  if (!isValidEmail(email)) return 'Enter a valid email address, such as name@example.com.';
+  return '';
+}
+
+function getPhoneError(phone) {
+  if (phone === '') return 'Enter your phone number.';
+  const hasOnlyPhoneCharacters = /^\+?[\d\s\-()]+$/.test(phone);
+  const digits = phone.replace(/\D/g, '');
+  // Kazakhstan numbers have 11 digits and start with 7 (or 8 when written locally).
+  if (!hasOnlyPhoneCharacters || !/^[78]\d{10}$/.test(digits)) {
+    return 'Enter a Kazakhstan phone number, for example +7 701 123 45 67.';
+  }
+  return '';
+}
+
+function getPasswordError(password) {
+  if (password === '') return 'Enter a password.';
+  if (password.length < 8 || password.length > 32) return 'The password must be 8 to 32 characters long.';
+  if (!/[A-Z]/.test(password)) return 'Add at least one uppercase letter.';
+  if (!/[0-9]/.test(password)) return 'Add at least one number.';
+  if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) return 'Add at least one special character, such as ! or @.';
+  return '';
+}
+
+// Shows or clears the message under a field and reports whether the field is valid.
+function setFieldError(input, message) {
+  const feedback = input.parentElement.querySelector('.invalid-feedback');
+  input.classList.toggle('is-invalid', message !== '');
+  feedback.textContent = message;
+  return message === '';
+}
+
+function showStatus(element, message, type) {
+  element.className = `alert alert-${type}`;
+  element.textContent = message;
+}
+
+function hideStatus(element) {
+  element.className = 'alert d-none';
+  element.textContent = '';
+}
+
+if (loginForm && signupForm) {
+  if (getCurrentUser()) {
+    window.location.replace('profile.html');
+  }
+
+  [loginForm, signupForm].forEach((form) => {
+    form.addEventListener('input', (event) => {
+      event.target.classList.remove('is-invalid');
+    });
+  });
+
+  loginForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    hideStatus(loginStatus);
+
+    const email = loginEmail.value.trim().toLowerCase();
+    const password = loginPassword.value;
+
+    const fieldsValid = [
+      setFieldError(loginEmail, getEmailError(email)),
+      setFieldError(loginPassword, password === '' ? 'Enter your password.' : '')
+    ].every(Boolean);
+
+    if (!fieldsValid) return;
+
+    const user = getUsers().find((item) => item.email === email && item.password === password);
+    if (!user) {
+      showStatus(loginStatus, 'Incorrect email or password.', 'danger');
+      return;
+    }
+
+    localStorage.setItem(SESSION_KEY, user.email);
+    window.location.href = 'profile.html';
+  });
+
+  signupForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const name = signupName.value.trim();
+    const email = signupEmail.value.trim().toLowerCase();
+    const phone = signupPhone.value.trim();
+    const password = signupPassword.value;
+    const confirmation = signupConfirm.value;
+
+    let confirmationError = '';
+    if (confirmation === '') {
+      confirmationError = 'Repeat your password.';
+    } else if (confirmation !== password) {
+      confirmationError = 'The passwords do not match.';
+    }
+
+    const fieldsValid = [
+      setFieldError(signupName, getNameError(name)),
+      setFieldError(signupEmail, getEmailError(email)),
+      setFieldError(signupPhone, getPhoneError(phone)),
+      setFieldError(signupPassword, getPasswordError(password)),
+      setFieldError(signupConfirm, confirmationError)
+    ].every(Boolean);
+
+    if (!fieldsValid) return;
+
+    const users = getUsers();
+    if (users.some((item) => item.email === email)) {
+      setFieldError(signupEmail, 'An account with this email already exists.');
+      return;
+    }
+
+    users.push({ name, email, phone, password, createdAt: new Date().toISOString() });
+    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+
+    signupForm.reset();
+    loginEmail.value = email;
+    loginPassword.value = '';
+    bootstrap.Tab.getOrCreateInstance(document.getElementById('login-tab')).show();
+    showStatus(loginStatus, 'Account created. Log in to continue.', 'success');
+  });
+}
+
+if (profileCard) {
+  const user = getCurrentUser();
+
+  if (!user) {
+    window.location.replace('login.html');
+  } else {
+    const values = {
+      name: user.name,
+      email: user.email,
+      phone: user.phone,
+      joined: new Date(user.createdAt).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      })
+    };
+
+    // textContent keeps anything the user typed from being read as HTML.
+    profileCard.querySelectorAll('[data-profile-field]').forEach((element) => {
+      element.textContent = values[element.dataset.profileField];
+    });
+    profileCard.hidden = false;
+  }
+}
+
+if (logoutButton) {
+  logoutButton.addEventListener('click', () => {
+    localStorage.removeItem(SESSION_KEY);
+    window.location.href = 'index.html';
+  });
+}
+
+// The navbar button leads to the profile once someone is logged in.
+if (authNavLink && getCurrentUser()) {
+  authNavLink.textContent = 'Profile';
+  authNavLink.href = 'profile.html';
+}
+
+
+/* =========================================================
+   11. JQUERY ASSIGNMENT TASKS (Parts 1, 2 & 3)
    ========================================================= */
 
 $(document).ready(function () {

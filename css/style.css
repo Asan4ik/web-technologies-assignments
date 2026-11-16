@@ -30,12 +30,48 @@ body {
     background: rgba(43, 44, 48, 0.4);
 }
 
-a {
-    color: white !important;
+.navbar {
+    background-color: #12182d;
 }
 
-a:hover {
-    color: #4a4a4a !important;
+.navbar[data-bs-theme="dark"] {
+    --bs-navbar-color: rgba(255, 255, 255, 0.85);
+    --bs-navbar-hover-color: #ffffff;
+}
+
+.footer-custom {
+    background-color: #12182d;
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+.theme-toggle {
+    padding: 0.5rem 0.6rem;
+}
+
+.theme-toggle svg {
+    display: block;
+}
+
+.theme-toggle .icon-sun {
+    display: none;
+}
+
+body.dark-theme .theme-toggle .icon-moon {
+    display: none;
+}
+
+body.dark-theme .theme-toggle .icon-sun {
+    display: block;
+}
+
+.page-offset {
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+}
+
+.account-card {
+    max-width: 440px;
 }
 
 .card img {
@@ -236,8 +272,38 @@ body.dark-theme .table-dark {
 /* Text Muted and Helper Contrast */
 body.dark-theme .text-secondary,
 body.dark-theme .text-muted,
+body.dark-theme .form-text,
 body.dark-theme .figure-caption {
     color: #b0c4b5 !important;
+}
+
+/* Login tabs and validation messages */
+body.dark-theme .nav-tabs {
+    border-color: #3b4e41;
+}
+
+body.dark-theme .nav-tabs .nav-link {
+    color: #b0c4b5;
+}
+
+body.dark-theme .nav-tabs .nav-link:hover {
+    color: #edf4ee;
+    border-color: #3b4e41 #3b4e41 transparent;
+}
+
+body.dark-theme .nav-tabs .nav-link.active {
+    background-color: #26352b;
+    color: #edf4ee;
+    border-color: #3b4e41 #3b4e41 #26352b;
+}
+
+body.dark-theme .invalid-feedback {
+    color: #ff8a94;
+}
+
+body.dark-theme .form-control.is-invalid,
+body.dark-theme .form-select.is-invalid {
+    border-color: #ff8a94 !important;
 }
 
 body.dark-theme code {
@@ -279,22 +345,6 @@ body.dark-theme code {
 
 .transport-item:hover {
     transform: translateY(-5px);
-}
-
-.transport-item.card-enter {
-    animation: cardAppear 0.35s ease;
-}
-
-@keyframes cardAppear {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 
