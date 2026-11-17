@@ -158,18 +158,27 @@ if (contactForm) {
    5. TRAVEL TIPS ACCORDION
    ========================================================= */
 
+
 if (travelTipsList) {
   travelTipsList.addEventListener('click', (event) => {
-    const card = event.target.closest('.tip-card');
+    const header = event.target.closest('.tip-header');
+    if (!header) return;
+
+    const card = header.closest('.tip-card');
     if (!card || !travelTipsList.contains(card)) return;
 
-    card.classList.toggle('open');
+    const isOpen = card.classList.toggle('open');
+
     const content = card.querySelector('.tip-content');
+
     if (content) {
-      content.classList.toggle('d-none');
+      content.classList.toggle('d-none', !isOpen);
     }
+
+    header.setAttribute('aria-expanded', String(isOpen));
   });
 }
+
 
 
 /* =========================================================
@@ -258,8 +267,8 @@ function updateDestinationCount(category) {
   const filteredDestinations = category === 'all'
     ? Array.from(destinationItems)
     : Array.from(destinationItems).filter(
-        (item) => item.dataset.category === category
-      );
+      (item) => item.dataset.category === category
+    );
 
   if (destinationCount) {
     destinationCount.textContent = `Showing ${filteredDestinations.length} of ${destinationItems.length} destinations`;
@@ -456,14 +465,13 @@ if (loginForm && signupForm) {
       return;
     }
 
-    users.push({ name, email, phone, password, createdAt: new Date().toISOString() });
+    const newUser = { name, email, phone, password, createdAt: new Date().toISOString() };
+    users.push(newUser);
     localStorage.setItem(USERS_KEY, JSON.stringify(users));
+    localStorage.setItem(SESSION_KEY, email);
 
-    signupForm.reset();
-    loginEmail.value = email;
-    loginPassword.value = '';
-    bootstrap.Tab.getOrCreateInstance(document.getElementById('login-tab')).show();
-    showStatus(loginStatus, 'Account created. Log in to continue.', 'success');
+    // Sign the user in immediately after a successful registration.
+    window.location.href = 'profile.html';
   });
 }
 
@@ -500,9 +508,13 @@ if (logoutButton) {
 }
 
 // The navbar button leads to the profile once someone is logged in.
-if (authNavLink && getCurrentUser()) {
-  authNavLink.textContent = 'Profile';
-  authNavLink.href = 'profile.html';
+if (authNavLink) {
+  const currentUser = getCurrentUser();
+  if (currentUser) {
+    authNavLink.textContent = currentUser.name;
+    authNavLink.href = 'profile.html';
+    authNavLink.setAttribute('aria-label', `Open profile for ${currentUser.name}`);
+  }
 }
 
 
@@ -626,7 +638,7 @@ $(document).ready(function () {
     $(".stat-counter").each(function () {
       const $this = $(this);
       const target = parseInt($this.attr("data-target"), 10);
-      
+
       $({ countNum: 0 }).animate({ countNum: target }, {
         duration: 2000,
         easing: "swing",
@@ -665,7 +677,7 @@ $(document).ready(function () {
       const $submitBtn = $("#contactButton");
       const originalText = $submitBtn.text();
 
-      const isValid = processContactForm(function () {});
+      const isValid = processContactForm(function () { });
       if (!isValid) return;
 
       $submitBtn.prop("disabled", true).html(`

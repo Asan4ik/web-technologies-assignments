@@ -259,7 +259,7 @@ body.dark-theme #quick-facts-table td {
     background-color: transparent !important;
 }
 
-body.dark-theme .table-striped > tbody > tr:nth-of-type(odd) > * {
+body.dark-theme .table-striped>tbody>tr:nth-of-type(odd)>* {
     background-color: rgba(255, 255, 255, 0.03) !important;
     color: #edf4ee !important;
 }
@@ -350,66 +350,276 @@ body.dark-theme code {
 
 /* Scroll Progress Bar */
 #scrollProgressBarContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background-color: transparent;
-  z-index: 1050;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: transparent;
+    z-index: 1050;
 }
 
 #scrollProgressBar {
-  height: 100%;
-  width: 0%;
-  background-color: #198754;
-  transition: width 0.1s ease-out;
+    height: 100%;
+    width: 0%;
+    background-color: #198754;
+    transition: width 0.1s ease-out;
 }
 
 
 /* Copy Button & Tooltip */
 .copy-btn-wrapper {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 .copy-tooltip {
-  display: none;
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #212529;
-  color: #fff;
-  padding: 3px 8px;
-  font-size: 12px;
-  border-radius: 4px;
-  white-space: nowrap;
+    display: none;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #212529;
+    color: #fff;
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    white-space: nowrap;
 }
 
 
 /* Toast Notifications */
 #toastContainer {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1100;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1100;
 }
 
 
 /* Image Lazy Loading */
 img.lazy-img {
-  opacity: 0;
-  transition: opacity 0.4s ease-in-out;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
 }
 
 img.lazy-img.loaded {
-  opacity: 1;
+    opacity: 1;
 }
 
 .figure-img.lazy-img {
-  aspect-ratio: 3 / 2;
-  width: 100%;
-  object-fit: cover;
-  background-color: #e9ecef;
+    aspect-ratio: 3 / 2;
+    width: 100%;
+    object-fit: cover;
+    background-color: #e9ecef;
+}
+
+/* =========================================================
+   COUNTRY OVERVIEW & COMMUNITY COMMENTS
+   ========================================================= */
+.country-card {
+    background: #fbfcfb;
+    border-color: #e4ebe5 !important;
+}
+
+.country-flag {
+    width: 76px;
+    height: 52px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+}
+
+.country-fact {
+    min-height: 76px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    padding: 11px 13px;
+    border-radius: 10px;
+    background: #f0f4f1;
+}
+
+.country-fact span {
+    color: #68766c;
+    font-size: 0.82rem;
+}
+
+.country-fact strong {
+    font-size: 1rem;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.country-quote {
+    min-height: 100%;
+    height: 100%;
+    min-height: 360px;
+}
+
+.country-quote img {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+}
+
+.country-quote-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.43);
+}
+
+.comment-card {
+    border-left: 4px solid #198754 !important;
+}
+
+.comment-author {
+    color: #198754;
+}
+
+.comment-message {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+
+body.dark-theme .comment-card {
+    background: #26352b;
+    color: #edf4ee;
+}
+
+body.dark-theme .comment-author {
+    color: #8fd3a8;
+}
+
+body.dark-theme #comments-section .form-control {
+    background-color: #1f2c23;
+    color: #edf4ee;
+    border-color: #49604f;
+}
+
+@media (max-width: 575.98px) {
+    .country-card {
+        padding: 1.25rem !important;
+    }
+
+    .country-quote {
+        min-height: 280px;
+    }
+}
+
+
+/* Trip Guide: compact live weather panel */
+.weather-panel {
+    background: #fbfcfb;
+    border-color: #e4ebe5 !important;
+}
+
+.weather-city-select {
+    width: auto;
+    min-width: 145px;
+    border-color: #cbd8ce;
+}
+
+.weather-symbol {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.weather-detail,
+.weather-day {
+    height: 100%;
+    padding: 0.7rem 0.8rem;
+    border-radius: 0.65rem;
+    background: #f0f4f1;
+}
+
+.weather-detail span {
+    display: block;
+    color: #68766c;
+    font-size: 0.78rem;
+    margin-bottom: 0.2rem;
+}
+
+.weather-detail strong {
+    font-size: 0.95rem;
+}
+
+.weather-day {
+    text-align: center;
+    padding: 0.65rem 0.35rem;
+}
+
+body.dark-theme .weather-panel {
+    background: #26352b;
+    border-color: #3b4e41 !important;
+    color: #edf4ee;
+}
+
+body.dark-theme .weather-detail,
+body.dark-theme .weather-day {
+    background: #1f2c23;
+    color: #edf4ee;
+}
+
+body.dark-theme .weather-detail span {
+    color: #b0c4b5;
+}
+
+body.dark-theme .weather-city-select {
+    background-color: #1f2c23;
+    color: #edf4ee;
+    border-color: #49604f;
+}
+
+@media (max-width: 575.98px) {
+    .weather-city-select {
+        width: 100%;
+    }
+}
+
+.country-flag-emoji {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px;
+    height: 52px;
+    font-size: 2.7rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   TRAVEL TIPS ACCORDION
+   ========================================================= */
+
+.tip-header {
+    cursor: pointer;
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+.tip-header:hover {
+    color: #0d6efd;
+}
+
+.tip-arrow {
+    font-size: 20px;
+    line-height: 1;
+    margin-left: 15px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.tip-card.open .tip-arrow {
+    transform: rotate(180deg);
+}
+
+.tip-header:focus-visible {
+    outline: 2px solid #0d6efd;
+    outline-offset: 3px;
+    border-radius: 4px;
 }
